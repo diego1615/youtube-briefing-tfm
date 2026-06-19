@@ -48,27 +48,32 @@ ollama pull qwen3.5:4b
 - Buscar un tema.
 - Mostrar filtros por region, idioma, dias, orden y categoria.
 - Mostrar tabla de resultados.
+- Activar `Reproducir en la app` en un resultado y mostrar que el video se reproduce embebido.
 - Ejecutar `Generar briefing con IA`.
 - Mostrar el resumen ejecutivo, hallazgos, comparacion de fuentes, sesgos y recomendacion de videos.
 - Seleccionar uno o mas videos y ejecutar `Resumir seleccionados`.
 
-### 5. Demo: IA generativa local
+### 5. Demo: reproduccion embebida
+
+"Los resultados no obligan a salir a YouTube. Cada card tiene un toggle para reproducir el video dentro de la app. Esto ayuda a revisar fuentes, comparar contenidos y volver al briefing sin romper el flujo de investigacion."
+
+### 6. Demo: IA generativa local
 
 "La parte de IA generativa se ejecuta con Ollama en local. La app toma los resultados de YouTube y los transforma en un briefing ejecutivo: compara fuentes, marca posibles sesgos y recomienda que videos mirar primero. Esto evita enviar el contenido a un proveedor externo de LLM y mantiene la app usable incluso sin conexion a APIs generativas."
 
-### 6. Arquitectura
+### 7. Arquitectura
 
 "La app separa responsabilidades en modulos: `youtube_client.py` maneja la API oficial de YouTube, `transcripts.py` intenta obtener transcripciones publicas, `summarizer.py` genera resumenes extractivos locales y `ollama_client.py` encapsula la generacion con modelos locales."
 
-### 7. Stack y buenas practicas
+### 8. Stack y buenas practicas
 
 "El proyecto usa Python, Streamlit, YouTube Data API, Ollama, variables de entorno, tests unitarios y GitHub Actions. La API key no se sube al repositorio; se configura como `.env` local o secret en despliegue."
 
-### 8. Limitaciones y mejoras
+### 9. Limitaciones y mejoras
 
 "YouTube Data API no genera resumenes, y las transcripciones no siempre estan disponibles. La IA generativa depende de tener Ollama corriendo en local; en un despliegue cloud se puede desactivar. Como mejora natural agregaria exportacion de briefs y ranking propio de resultados."
 
-### 9. Cierre
+### 10. Cierre
 
 "El proyecto queda documentado, con slides, instrucciones de despliegue y repositorio publico en GitHub."
 
@@ -78,6 +83,7 @@ ollama pull qwen3.5:4b
 - [ ] Se muestra la app ejecutandose.
 - [ ] Se muestra al menos una URL analizada.
 - [ ] Se muestra una busqueda de noticias.
+- [ ] Se muestra un video reproducido dentro de la app.
 - [ ] Se muestra el briefing generativo con Ollama.
 - [ ] Se explica la arquitectura.
 - [ ] Se menciona que no hay login.
