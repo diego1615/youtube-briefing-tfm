@@ -95,7 +95,7 @@ Requisitos:
 Setup rapido:
 
 ```bash
-scripts/bootstrap.sh
+bash scripts/bootstrap.sh
 ```
 
 Ese comando crea `.venv`, instala dependencias y copia `.env.example` a `.env` si todavia no existe.
@@ -135,7 +135,7 @@ La app permite cambiar el modelo desde la barra lateral. Tambien funciona con ot
 Si ya tienes `gcloud` instalado y autenticado:
 
 ```bash
-scripts/configure_youtube_cloud.sh
+bash scripts/configure_youtube_cloud.sh
 ```
 
 El script crea un proyecto, habilita `youtube.googleapis.com`, crea una API key restringida a YouTube Data API y la guarda en `.env`.
@@ -144,7 +144,7 @@ Si `gcloud` no esta instalado en macOS:
 
 ```bash
 brew install --cask google-cloud-sdk
-scripts/configure_youtube_cloud.sh
+bash scripts/configure_youtube_cloud.sh
 ```
 
 Tambien puedes pegar una API key en la barra lateral de la app y presionar "Guardar API key local".
