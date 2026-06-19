@@ -373,6 +373,13 @@ def render_news_result_card(video: Dict) -> None:
                 f'Views: {format_count(video.get("view_count"))} | Likes: {format_count(video.get("like_count"))}'
             )
 
+        video_url = video.get("url")
+        if video_url:
+            video_key = str(video.get("id") or video_url).replace(":", "_").replace("/", "_")
+            play_video = st.toggle("Reproducir en la app", key=f"play_news_video_{video_key}")
+            if play_video:
+                st.video(video_url)
+
 
 def ai_result_signature(results: List[Dict]) -> Tuple[Tuple[str, str, str, str, str, str, str], ...]:
     return tuple(
