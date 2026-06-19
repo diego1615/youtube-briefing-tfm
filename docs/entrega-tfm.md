@@ -10,7 +10,7 @@ Documento de control para completar el formulario final del master.
 | Codigo fuente | Listo | Repositorio GitHub publico |
 | Repositorio GitHub | Preparado | `https://github.com/diego1615/youtube-briefing-tfm` |
 | Despliegue | Pendiente | Completar URL despues de Streamlit Cloud |
-| Slides | Listo | https://docs.google.com/presentation/d/1lYlGqyycLlqZ9CUEBBYMQoiovi4FByi_Wa1CkFtQew4 |
+| Slides | Listo | https://docs.google.com/presentation/d/1lYlGqyycLlqZ9CUEBBYMQoiovi4FByi_Wa1CkFtQew4 compartido con `mouredev@gmail.com` |
 | Video explicativo | Pendiente de grabar | Usar `docs/video-guia.md` |
 | Usuario/contrasena de prueba | No aplica | La app no tiene login |
 | IA generativa | Listo local | Briefing con modelos locales de Ollama |
@@ -39,4 +39,4 @@ Documento de control para completar el formulario final del master.
 - [ ] Pegar la URL real de despliegue en `README.md` y en este archivo.
 - [ ] Subir/grabar el video explicativo con captura de pantalla.
 - [ ] Pegar la URL publica del video en el formulario.
-- [x] Confirmar que las slides son accesibles desde el repo o desde una URL publica.
+- [x] Confirmar que las slides estan enlazadas desde el repo y compartidas con `mouredev@gmail.com`.
