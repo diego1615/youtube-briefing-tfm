@@ -8,9 +8,10 @@ Este repositorio esta preparado como Trabajo Final de Master de Desarrollo con I
 
 - Repositorio GitHub: `https://github.com/diego1615/youtube-briefing-tfm`
 - Despliegue: pendiente de publicar en Streamlit Community Cloud o servicio equivalente.
-- Slides: [Google Slides](https://docs.google.com/presentation/d/1VQzKtFd933Ag5pfQCFwfAtKsr5ET4k8RjqWO7PEV_ag)
+- Slides: [Google Slides](https://docs.google.com/presentation/d/1lYlGqyycLlqZ9CUEBBYMQoiovi4FByi_Wa1CkFtQew4)
 - Guia para video explicativo: [`docs/video-guia.md`](docs/video-guia.md)
 - Checklist de entrega: [`docs/entrega-tfm.md`](docs/entrega-tfm.md)
+- Matriz de cumplimiento de consigna: [`docs/consigna-checklist.md`](docs/consigna-checklist.md)
 - Usuario y contrasena de prueba: no aplica, la app no tiene login.
 
 ## Descripcion general
@@ -42,6 +43,7 @@ El proyecto demuestra integracion con APIs externas, modelos locales de IA gener
 - Resumen extractivo local a partir de transcripcion o metadata.
 - Briefing generativo con Ollama sobre resultados de busqueda.
 - Comparacion de fuentes, hallazgos, sesgos potenciales y recomendacion de videos a mirar.
+- Reproduccion embebida de videos desde los resultados, sin salir de la app.
 - Extraccion de keywords principales.
 - Tabla comparativa de resultados.
 - Resumen de videos seleccionados desde una busqueda.
@@ -62,6 +64,7 @@ El proyecto demuestra integracion con APIs externas, modelos locales de IA gener
 |   `-- workflows/
 |       `-- ci.yml
 |-- docs/
+|   |-- consigna-checklist.md
 |   |-- deployment.md
 |   |-- entrega-tfm.md
 |   |-- presentacion_tfm.md
@@ -164,7 +167,11 @@ http://localhost:8501
 .venv/bin/python -m unittest discover -s tests
 ```
 
-Los tests cubren extraccion de IDs de YouTube, formateo de duraciones y utilidades del resumen local.
+Los tests cubren extraccion de IDs de YouTube, formateo de duraciones, utilidades del resumen local y cliente de Ollama.
+
+## Cumplimiento de consigna
+
+La matriz completa de requisitos del TFM esta en [`docs/consigna-checklist.md`](docs/consigna-checklist.md). Los puntos que dependen de una accion externa siguen marcados como pendientes: URL de despliegue publico y URL del video final.
 
 ## Despliegue
 
