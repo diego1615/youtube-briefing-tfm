@@ -7,7 +7,7 @@ Documento de control para completar el formulario final del master.
 | Requisito | Estado | Ubicacion |
 | --- | --- | --- |
 | Documentacion completa | Listo | `README.md` |
-| Codigo fuente | Listo local | Repositorio GitHub publico pendiente de publicacion |
+| Codigo fuente | Listo | Repositorio GitHub publico |
 | Repositorio GitHub | Preparado | `https://github.com/diego1615/youtube-briefing-tfm` |
 | Despliegue | Pendiente | Completar URL despues de Streamlit Cloud |
 | Slides | Listo | https://docs.google.com/presentation/d/1SBayRuDCST3UX4fHH7AEZlcQVAinGpAd1kvxJv6BoEE |
@@ -26,10 +26,10 @@ Documento de control para completar el formulario final del master.
 
 ## Antes de enviar
 
-- [ ] Confirmar que el repositorio es publico.
-- [ ] Confirmar que `.env` no fue subido.
+- [x] Confirmar que el repositorio es publico.
+- [x] Confirmar que `.env` no fue subido.
 - [ ] Confirmar que la app publicada tiene configurado `YOUTUBE_API_KEY` como secret.
 - [ ] Pegar la URL real de despliegue en `README.md` y en este archivo.
 - [ ] Subir/grabar el video explicativo con captura de pantalla.
 - [ ] Pegar la URL publica del video en el formulario.
-- [ ] Confirmar que las slides son accesibles desde el repo o desde una URL publica.
+- [x] Confirmar que las slides son accesibles desde el repo o desde una URL publica.
