@@ -104,7 +104,10 @@ Luego edita `.env`:
 
 ```bash
 YOUTUBE_API_KEY=tu_api_key_de_youtube_data_api
+YOUTUBE_FORCE_IPV4=true
 ```
+
+`YOUTUBE_FORCE_IPV4=true` evita demoras largas en redes donde Python intenta IPv6 hacia Google antes de caer a IPv4. Si tu entorno tiene IPv6 estable, puedes cambiarlo a `false`.
 
 ## Configuracion de Google Cloud
 
@@ -157,6 +160,7 @@ Resumen:
 
 ```toml
 YOUTUBE_API_KEY = "tu_api_key_de_youtube_data_api"
+YOUTUBE_FORCE_IPV4 = "true"
 ```
 
 4. Copiar la URL publica del despliegue en esta documentacion y en el formulario de entrega.
