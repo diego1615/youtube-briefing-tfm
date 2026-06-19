@@ -1,12 +1,15 @@
 from __future__ import annotations
 
+import os
 import re
+import socket
 from datetime import datetime, timedelta, timezone
 from typing import Any, Dict, Iterable, List, Optional
 from urllib.parse import parse_qs, urlparse
 
 
 YOUTUBE_API_BASE = "https://www.googleapis.com/youtube/v3"
+YOUTUBE_REQUEST_TIMEOUT = (5, 20)
 VIDEO_ID_RE = re.compile(r"^[A-Za-z0-9_-]{11}$")
 ISO_DURATION_RE = re.compile(
     r"^P(?:(?P<days>\d+)D)?(?:T(?:(?P<hours>\d+)H)?(?:(?P<minutes>\d+)M)?(?:(?P<seconds>\d+)S)?)?$"
@@ -15,6 +18,31 @@ ISO_DURATION_RE = re.compile(
 
 class YouTubeAPIError(RuntimeError):
     """Raised when YouTube Data API rejects or cannot fulfill a request."""
+
+
+def _env_flag(name: str, default: bool) -> bool:
+    value = os.getenv(name)
+    if value is None:
+        return default
+    return value.strip().lower() not in {"0", "false", "no", "off"}
+
+
+def _force_ipv4_for_requests() -> None:
+    if not _env_flag("YOUTUBE_FORCE_IPV4", True):
+        return
+
+    try:
+        import urllib3.util.connection as urllib3_connection
+    except Exception:
+        return
+
+    if getattr(urllib3_connection.allowed_gai_family, "__name__", "") == "_youtube_ipv4_gai_family":
+        return
+
+    def _youtube_ipv4_gai_family() -> int:
+        return socket.AF_INET
+
+    urllib3_connection.allowed_gai_family = _youtube_ipv4_gai_family
 
 
 def extract_video_id(value: str) -> str:
@@ -107,12 +135,18 @@ def _youtube_get(api_key: str, endpoint: str, params: Dict[str, Any]) -> Dict[st
     if not api_key:
         raise YouTubeAPIError("Falta YOUTUBE_API_KEY.")
 
+    _force_ipv4_for_requests()
     request_params = {**params, "key": api_key}
-    response = requests.get(
-        f"{YOUTUBE_API_BASE}/{endpoint}",
-        params=request_params,
-        timeout=25,
-    )
+    try:
+        response = requests.get(
+            f"{YOUTUBE_API_BASE}/{endpoint}",
+            params=request_params,
+            timeout=YOUTUBE_REQUEST_TIMEOUT,
+        )
+    except requests.RequestException as exc:
+        raise YouTubeAPIError(
+            "No pude conectar con YouTube Data API. Revisa la red/VPN o intenta de nuevo."
+        ) from exc
 
     try:
         data = response.json()
