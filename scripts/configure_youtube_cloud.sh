@@ -12,7 +12,7 @@ PROJECT_ID="${1:-$DEFAULT_PROJECT_ID}"
 if ! command -v gcloud >/dev/null 2>&1; then
   echo "No encontre gcloud."
   echo "Instalalo con: brew install --cask google-cloud-sdk"
-  echo "Despues ejecuta: scripts/configure_youtube_cloud.sh"
+  echo "Despues ejecuta: bash scripts/configure_youtube_cloud.sh"
   exit 1
 fi
 
